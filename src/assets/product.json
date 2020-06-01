@@ -1,0 +1,74 @@
+[
+    {
+        "id":123,
+        "name": "Mango",
+        "icon": "🥭",
+        "price": 100,
+        "unit": "Kg",
+        "type": "fruit"
+    },
+    {
+        "id": 223,
+        "name": "Strawberry",
+        "icon": "🍓",
+        "price": 220,
+        "unit": "Kg",
+        "type": "fruits"
+    },
+    {
+        "id": 33,
+        "name": "Banana",
+        "icon": "🍌",
+        "price": 60,
+        "unit": "dozen",
+        "type": "fruits"
+    },
+    {
+        "id": 63,
+        "name": "Cocacola",
+        "icon": "🥤",
+        "price": 60,
+        "unit": "liter",
+        "type": "beverage"
+    },
+    {
+        "id": 173,
+        "name": "chocolate",
+        "icon": "🍫",
+        "price": 100,
+        "unit": "piece",
+        "type": "sweets"
+    },
+    {
+        "id": 23,
+        "name": "rice",
+        "icon": "🍚",
+        "price": 80,
+        "unit": "Kg",
+        "type": "food"
+    },
+    {
+        "id": 49,
+        "name": "fish",
+        "icon": "🐟",
+        "price": 140,
+        "unit": "Kg",
+        "type": "food"
+    },
+    {
+        "id": 87,
+        "name": "Beef",
+        "icon": "🐄",
+        "price": 230,
+        "unit": "Kg",
+        "type": "food"
+    },
+    {
+        "id": 43,
+        "name": "Chicken",
+        "icon": "🐔",
+        "price": 125,
+        "unit": "Kg",
+        "type": "food"
+    }
+]
