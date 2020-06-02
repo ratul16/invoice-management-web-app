@@ -8,11 +8,11 @@
                 InVoicing
             </h1>
             <button class="btn btn-light">
-              <router-link to="/">Home</router-link>
+              <router-link to="/"><i class="fas fa-home"></i> &nbsp;Home</router-link>
             </button> 
             &nbsp;<i class="fas fa-exchange-alt"></i> &nbsp;
             <button class="btn btn-light">            
-              <router-link to="/invoice">Invoice</router-link>
+              <router-link to="/invoice"><i class="fas fa-receipt"></i> &nbsp;Invoice</router-link>
             </button>
         </div>
         <transition name="fade" mode="out-in">
