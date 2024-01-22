@@ -3,12 +3,9 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about">About</RouterLink>
-  </nav>
-  <!-- <img alt="Vue logo" class="logo" src="@/assets/images/logo.svg" width="125" height="125" /> -->
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <style lang="scss">

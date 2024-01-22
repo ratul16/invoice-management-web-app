@@ -1,6 +1,5 @@
 @use "sass:math";
 
-$body-font-size: 14px;
 $breakpoints: (
   "mobile": 576px,
   "tab-sm": 768px,
@@ -36,8 +35,23 @@ $breakpoints: (
 }
 
 @mixin button {
-  @include font(13px, 23px, 700);
+  @include font(15px, 15px, 700);
 }
 
+@mixin heading-l {
+  @include font(36px, 33px, 700);
+}
+
+@mixin heading-m {
+  @include font(24px, 22px, 700);
+}
+
+@mixin heading-s {
+  @include font(15px, 24px, 700);
+}
+
+@mixin body {
+  @include font(13px, 18px, 500);
+}
 
 

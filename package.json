@@ -19,6 +19,7 @@
     "@rushstack/eslint-patch": "^1.3.3",
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/eslint-config-prettier": "^8.0.0",
+    "@vuepic/vue-datepicker": "^7.4.1",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
     "prettier": "^3.0.3",
