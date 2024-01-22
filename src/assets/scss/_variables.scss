@@ -1,0 +1,39 @@
+$white: #FFFFFF;
+$black: #31363a;
+$grey: #808485;
+$grey-light: #f7f8f7;
+$grey-dark: #5b6062;
+$grey-very-dark: #20212C;
+
+$orange: #ff9800;
+$orange-light: #ffd54f;
+$green: #4caf50;
+$green-light: #a5d6a7;
+$red: #f14231;
+$red-light: #fabcb6;
+
+$border-light: #eaecea;
+$border-dark: #3E3F4E;
+
+$new-column-btn-bg-light: #ecf1fa;
+$new-column-btn-bg-dark: #22232f;
+
+:root,
+:root[theme="light"] {
+  --body-bg-color: #{$grey-light};
+  --body-text-color: #{$black};
+  --header-bg-color: #{$white};
+  --border-color: #{$border-light};
+}
+
+:root[theme="dark"] {
+  --body-bg-color: #{$grey-very-dark};
+  --body-text-color: #{$white};
+  --header-bg-color: #{$grey-dark};
+  --border-color: #{$border-dark};
+}
+
+$body-bg-color: var(--body-bg-color);
+$body-text-color: var(--body-text-color);
+$header-bg-color: var(--header-bg-color);
+$border-color: var(--border-color);

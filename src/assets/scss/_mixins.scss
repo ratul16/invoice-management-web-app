@@ -1,0 +1,43 @@
+@use "sass:math";
+
+$body-font-size: 14px;
+$breakpoints: (
+  "mobile": 576px,
+  "tab-sm": 768px,
+  "tab": 991px,
+  "desktop-sm": 1024px,
+  "desktop": 1200px,
+  "desktop-xl" : 1904px,
+);
+
+@mixin media-queries($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type ==min {
+      $width: $width + 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@function pixelToRem($size) {
+  $proportion: math.div($size, $body-font-size);
+  @return $proportion * 1rem;
+}
+
+@mixin font($font-size, $line-height, $font-weight) {
+  font-size: pixelToRem($font-size);
+  line-height: pixelToRem($line-height);
+  font-weight: $font-weight;
+}
+
+@mixin button {
+  @include font(13px, 23px, 700);
+}
+
+
+

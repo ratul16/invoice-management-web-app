@@ -1,34 +1,35 @@
-# [<img src="./src/assets/logo.png" width="40" style="margin-right:10px;"/>](Winter) InVoicing
+# invoice-management-web-app
 
+This template should help get you started developing with Vue 3 in Vite.
 
-InVoicing lets you create dynamic invoices for your store. The App will do all the calculation based on the given quantity, price of the product and discount given of all the products in the cart. This also gives your customers a clean view of their purchased items. It also has a scan to pay feature, where you can add your own payment options and let your customers pay through their smart phones easily and if cash method is selected then the app will just show the total amount pay. The Qrcode was generated using  [QR Code Generator's](http://goqr.me/api/) Api.
+## Recommended IDE Setup
 
-[<img src="./src/assets/img/1.png" width="220" style="margin-right:10px;"/>](Signup)[<img src="./src/assets/img/2.png" width="220" style="margin-right:10px;"/>](Cart)[<img src="./src/assets/img/3.png" width="220" style="margin-right:10px;"/>](Payment)
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
+## Customize configuration
 
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
- Feel free to use the project as per the [License](LICENSE) given. If you liked the project feel free to give a star.
+## Project Setup
 
-
-## Project setup
-```
+```sh
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
 ```
 
-### Compiles and minifies for production
-```
+### Compile and Minify for Production
+
+```sh
 npm run build
 ```
 
-### Lints and fixes files
-```
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
