@@ -1,3 +1,4 @@
+import { useStore } from './stores/store';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
@@ -12,3 +13,6 @@ app.use(router);
 pinia.use(piniaPluginPersistedstate);
 
 app.mount('#app');
+
+const store = useStore();
+store.initialize();

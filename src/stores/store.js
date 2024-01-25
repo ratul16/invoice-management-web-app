@@ -3,6 +3,8 @@ import { defineStore } from "pinia";
 export const useStore = defineStore({
   id: "store",
   state: () => ({
+    count: 0,
+    theme: 'light',
     invoiceList: [
       {
         "id": "RT3080",
@@ -239,7 +241,10 @@ export const useStore = defineStore({
   getters: {
     getInvoiceList() {
       return this.invoiceList;
-    }
+    },
+    getTheme() {
+      return this.theme;
+    },
   },
   actions: {
     setUserRole(role) {
@@ -247,6 +252,13 @@ export const useStore = defineStore({
       this.isAuth = true;
       localStorage.setItem("role", JSON.stringify(this.role));
     },
+    setTheme(value) {
+      this.theme = value;
+    },
+    initialize() {
+      const savedKey = localStorage.getItem('store');
+      this.theme = JSON.parse(savedKey).theme;
+    },
+  }
 
-  },
 });

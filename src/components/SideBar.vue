@@ -5,8 +5,8 @@
     </div>
     <div class="wrapper">
       <div class="toggle-theme" @click="toggleTheme">
-        <img src="@/assets/images/icon-sun.svg" alt="" srcset="" v-if="theme" />
-        <img src="@/assets/images/icon-moon.svg" alt="" srcset="" v-else />
+        <img src="@/assets/images/icon-moon.svg" alt="" srcset="" v-if="isDarkMode" />
+        <img src="@/assets/images/icon-sun.svg" alt="" srcset="" v-else />
       </div>
       <div class="avatar">
         <img src="@/assets/images/image-avatar.jpg" alt="" srcset="" />
@@ -16,17 +16,33 @@
 </template>
 
 <script>
+import { useStore } from "../stores/store";
 export default {
   name: "SiderBar",
+  setup() {
+    const store = useStore();
+    return {
+      store,
+    };
+  },
   data() {
     return {
-      theme: true,
+      isDarkMode: false,
     };
   },
   methods: {
     toggleTheme() {
-      this.theme = !this.theme;
+      this.isDarkMode = !this.isDarkMode;
+      this.store.setTheme(this.isDarkMode ? "dark" : "light");
+      document.documentElement.setAttribute("theme", this.store.theme);
     },
+    fetchTheme() {
+      this.isDarkMode = this.store.theme === "dark" ? true : false;
+      document.documentElement.setAttribute("theme", this.store.theme);
+    },
+  },
+  mounted() {
+    this.fetchTheme();
   },
 };
 </script>
