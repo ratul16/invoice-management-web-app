@@ -1,8 +1,13 @@
 <template>
   <div class="invoice-list">
     <div class="invoice-wrapper" v-if="invoices.length">
-      <div class="invoice-card" v-for="invoice in invoices" :key="invoice.id">
-        <span class="id"> #{{ invoice.id }} </span>
+      <div
+        class="invoice-card"
+        v-for="invoice in invoices"
+        :key="invoice.id"
+        @click="getInvoiceDetails(invoice.id)"
+      >
+        <span class="id"> <b>#</b>{{ invoice.id }} </span>
         <span class="due"> Due {{ invoice.paymentDue }} </span>
         <span class="name">
           {{ invoice.clientName }}
@@ -12,10 +17,7 @@
           <i class="fa-solid fa-circle"></i>
           {{ invoice.status }}
         </span>
-        <!-- <span class="icon">
-        </span> -->
         <i class="fa-solid fa-chevron-right icon"></i>
-        <!-- ID, Duedate, name, status, amount -->
       </div>
     </div>
     <div class="empty" v-else>
@@ -50,16 +52,27 @@ export default {
       this.invoices = this.store.getInvoiceList;
     }
   },
+  methods: {
+    getInvoiceDetails(id) {
+      this.$router.push({
+        name: "invoice",
+        params: {
+          id: id,
+        },
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .invoice-list {
   .invoice-wrapper {
-    // max-height: 520px;
-    // overflow-y: scroll;
+    max-height: 540px;
+    overflow-y: scroll;
     display: grid;
-    gap: 10px;
+    gap: 16px;
+    padding: 0 10px 0 0;
     .invoice-card {
       // width: 100%;
       display: inline-flex;
@@ -71,9 +84,16 @@ export default {
       box-shadow: $shadow-light;
       background-color: $white;
       border-radius: 8px;
+      border: 1px solid $white;
+      transition: border 0.3s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        border-color: $border-color;
+      }
+
       span {
         flex: 1 0;
-        padding: 30px 24px;
+        padding: 24px;
       }
 
       .status {
@@ -105,7 +125,29 @@ export default {
       }
 
       .icon {
+        color: $purple;
         margin: 0 15px;
+      }
+
+      .id {
+        &::first-letter {
+          color: $btn-text-color;
+          font-weight: 700;
+        }
+      }
+
+      .name,
+      .due {
+        @include body;
+        color: $btn-text-color;
+      }
+      .total,
+      .id {
+        @include heading-s;
+      }
+
+      .total {
+        text-align: right;
       }
     }
   }
