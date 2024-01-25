@@ -4,10 +4,10 @@
       <span>
         {{ label }}
       </span>
-      <img src="@/assets/images/icon-arrow-down.svg" alt="" srcset="" />
+      <i class="fa-solid fa-chevron-down"></i>
     </div>
-    <ul v-show="toggle" class="select-options">
-      <li v-for="option in options" :key="option" @click="getSelectedOption(option)">
+    <ul v-if="toggle" class="select-options">
+      <li v-for="option in options" :key="option" @click="getSelectedOption(option, $event)">
         {{ option }}
       </li>
     </ul>
@@ -27,11 +27,12 @@ export default {
   methods: {
     toggleOptions() {
       this.toggle = !this.toggle;
-      console.log("clicked");
     },
-    getSelectedOption(option) {
+    getSelectedOption(option, event) {
+      event.stopPropagation();
+      this.label = option;
       this.selectedOption = option;
-      this.toggle = false;
+      this.toggleOptions();
     },
   },
 };
@@ -65,6 +66,10 @@ export default {
   &.active {
     border: 1px solid $purple;
     outline: none;
+  }
+
+  i {
+    color: $purple;
   }
 }
 

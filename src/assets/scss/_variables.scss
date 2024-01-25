@@ -23,6 +23,10 @@ $shadow-light: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
 $shadow-dark: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
 $transition: all 0.3s ease-in-out;
 
+$paid: #33d69f;
+$pending: #FF8F00;
+$draft: #373B53;
+
 :root,
 :root[theme="light"] {
   --body-bg-color: #{$bg-light};
@@ -30,6 +34,7 @@ $transition: all 0.3s ease-in-out;
   --header-bg-color: #{$white};
   --border-color: #{$border-light};
   --btn-text-color:#{$grey-dark};
+  --element-bg-color:#{$navy-dark};  
 }
 
 :root[theme="dark"] {
@@ -38,6 +43,7 @@ $transition: all 0.3s ease-in-out;
   --header-bg-color: #{$grey-dark};
   --border-color: #{$border-dark};
   --btn-text-color:#{$grey};
+  --element-bg-color:#{$navy};
 }
 
 $body-bg-color: var(--body-bg-color);
@@ -45,3 +51,4 @@ $body-text-color: var(--body-text-color);
 $header-bg-color: var(--header-bg-color);
 $border-color: var(--border-color);
 $btn-text-color: var(--btn-text-color);
+$element-bg-color: var(--element-bg-color);

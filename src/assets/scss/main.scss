@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   font-family: 'League Spartan', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -20,8 +24,22 @@ html {
   }
 }
 
+#app {
+  position: relative;
+  display: flex;
+  // gap: 10px;
+}
 
-.btn { 
+main {
+  width: 100%;
+  margin: 25px auto;
+  display: flex;
+  justify-content: center;
+}
+
+
+.btn {
+  position: relative;
   appearance: none;
   border: 1px solid $border-color;
   background-color: $body-bg-color;
@@ -33,6 +51,30 @@ html {
   cursor: pointer;
   transition: $transition;
   -webkit-tap-highlight-color: transparent;
+  text-align: center;
+
+  &.icon {
+    width: 166px;
+    max-height: 48px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    i {
+      position: absolute;
+      font-size: 12px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      color: $body-text-color;
+      text-align: center;
+      border-radius: 50%;
+      background-color: $body-bg-color;
+      left: 5%;
+      top: 6px;
+    }
+  }
 
   &:disabled {
     opacity: 0.25;
@@ -44,17 +86,29 @@ html {
   &.primary {
     background-color: $purple;
     color: $white;
+    i {
+      color: $purple;
+    }
     &:hover {
       background-color: $purple-light;
+      i {
+        color: $purple-light;
+      }
     }
+    
   }
 
   &.danger {
     background-color: $red;
     color: $white;
-
+    i {
+      color: $red;
+    }
     &:hover {
       background-color: $red-light;
+      i {
+        color: $red-light;
+      }
     }
   }
 

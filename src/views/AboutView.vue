@@ -17,13 +17,22 @@
         <button class="btn primary">Primary</button>
         <button class="btn danger">Danger</button>
         <button class="btn btn-block">Danger</button>
+        <hr />
+        <button class="btn primary icon">
+          <i class="fa-solid fa-plus"></i>
+          Primary
+        </button>
+        <button class="btn danger icon">
+          <i class="fa-solid fa-trash"></i>
+          Danger
+        </button>
       </div>
 
       <div>
         <label for="">Input Label</label>
-        <input type="text" placeholder="Hello world" />
         <SelectComponent />
         <DatePickerComponent />
+        <input type="text" placeholder="Hello world" />
       </div>
     </div>
   </div>
@@ -48,6 +57,7 @@ export default {
 .design-system {
   display: grid;
   place-content: center;
+  // grid-template-columns: 1fr 1fr;
   gap: 20px;
 
   h2 {
