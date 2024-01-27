@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// *::-webkit-scrollbar {
+//   display: none;
+// }
+
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50%;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba($purple, .5); 
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba($purple, .05);
+  border-radius: 50px;
+  /* Set the border radius of the track */
+}
+
+html {
+  font-family: 'League Spartan', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  
+  body {
+    background-color: $body-bg-color;
+    color: $body-text-color;
+    transition-property: background, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
+}
+
+#app {
+  position: relative;
+  display: flex;
+  // gap: 10px;
+}
+
+main {
+  width: 100%;
+  margin: 25px auto;
+  display: flex;
+  justify-content: center;
+}
+
+
+.btn {
+  position: relative;
+  appearance: none;
+  border: 1px solid $border-color;
+  background-color: $body-bg-color;
+  padding: 14px 24px;
+  color: $btn-text-color;
+  font-family: inherit;
+  @include button;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: $transition;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+
+  &.icon {
+    width: 166px;
+    max-height: 48px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    i {
+      position: absolute;
+      font-size: 12px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      color: $body-text-color;
+      text-align: center;
+      border-radius: 50%;
+      background-color: $body-bg-color;
+      left: 5%;
+      top: 6px;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.25;
+  }
+  &:hover {
+    background-color: $grey;
+  }
+
+  &.primary {
+    background-color: $purple;
+    color: $white;
+    i {
+      color: $purple;
+    }
+    &:hover {
+      background-color: $purple-light;
+      i {
+        color: $purple-light;
+      }
+    }
+    
+  }
+
+  &.danger {
+    background-color: $red;
+    color: $white;
+    i {
+      color: $red;
+    }
+    &:hover {
+      background-color: $red-light;
+      i {
+        color: $red-light;
+      }
+    }
+  }
+
+  &.btn-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+label {
+  color: $btn-text-color;
+  @include body;
+}
+
+input[type="text"]{
+  padding: 14px 20px;
+  border:1px solid $border-color;
+  border-radius: 4px;
+  @include button;
+  color: $body-text-color;
+  background-color: $white;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  &:focus {
+    border: 1px solid $purple;
+    outline: none;
+  }
+}

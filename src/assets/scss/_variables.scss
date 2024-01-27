@@ -1,0 +1,54 @@
+$white: #FFFFFF;
+$black: #141625;
+
+$purple: #7C5DFA;
+$purple-light: #9277FF;
+$navy: #252945;
+$navy-dark: #1E2139;
+
+$grey: #DFE3FA;
+$grey-light: #888EB0;
+$grey-dark: #7E88C3;
+$matte: #0C0E16;
+
+$red: #EC5757;
+$red-light: #FF9797;
+$bg-light:#F8F8FB;
+$bg-dark:#141625;
+
+$border-light: $grey;
+$border-dark: $navy;
+$body-font-size: 14px;
+$shadow-light: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
+$shadow-dark: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
+$transition: all 0.3s ease-in-out;
+
+$paid: #33d69f;
+$pending: #FF8F00;
+$draft: #373B53;
+
+:root,
+:root[theme="light"] {
+  --body-bg-color: #{$bg-light};
+  --body-text-color: #{$black};
+  --header-bg-color: #{$white};
+  --border-color: #{$border-light};
+  --btn-text-color:#{$grey-dark};
+  --element-bg-color:#{$navy-dark};  
+}
+
+:root[theme="dark"] {
+  --body-bg-color: #{$bg-dark};
+  --body-text-color: #{$white};
+  --header-bg-color: #{$grey-dark};
+  --border-color: #{$border-dark};
+  --btn-text-color:#{$grey};
+  --element-bg-color:#{$navy};
+}
+
+$body-bg-color: var(--body-bg-color);
+$body-text-color: var(--body-text-color);
+$header-bg-color: var(--header-bg-color);
+$border-color: var(--border-color);
+$btn-text-color: var(--btn-text-color);
+$element-bg-color: var(--element-bg-color);
