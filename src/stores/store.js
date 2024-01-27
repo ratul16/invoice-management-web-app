@@ -245,20 +245,19 @@ export const useStore = defineStore({
     getTheme() {
       return this.theme;
     },
+
   },
   actions: {
-    setUserRole(role) {
-      this.role = role;
-      this.isAuth = true;
-      localStorage.setItem("role", JSON.stringify(this.role));
-    },
     setTheme(value) {
       this.theme = value;
+    },
+    getInvoiceDetails(id) {
+      const result = this.invoiceList.filter(invoice => invoice.id === id);
+      return result;
     },
     initialize() {
       const savedKey = localStorage.getItem('store');
       this.theme = JSON.parse(savedKey).theme;
     },
   }
-
 });

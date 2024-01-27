@@ -20,7 +20,7 @@ const router = createRouter({
     {
       path: '/invoice/:id',
       name: 'invoice',
-      component: () => import('../views/InvoiceView.vue')
+      component: () => import('../views/InvoiceDetails.vue')
     },
   ]
 });

@@ -49,6 +49,11 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
   max-width: 100px;
   height: 100vh;
   border-radius: 0 20px 20px 0;

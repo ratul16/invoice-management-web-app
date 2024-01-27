@@ -43,21 +43,74 @@ html {
 #app {
   position: relative;
   display: flex;
-  // gap: 10px;
+  justify-content: center;
 }
 
 main {
-  width: 100%;
-  margin: 25px auto;
   display: flex;
   justify-content: center;
+  width: calc(100% - 100px);
+  max-width: 1080px;
+  margin: 30px 0 30px 80px;
+}
+
+h2 {
+  @include heading-l;
+}
+
+h4 {
+  @include heading-m;
+}
+
+h6 {
+  @include heading-s;
+}
+
+p {
+  @include body;
+}
+
+.status {
+  --_variant: var(--variant, $purple);
+  --_bg-variant: #{rgba(var(--bg-variant, $purple), 0.05)};
+
+  position: relative;
+  text-transform: capitalize;
+  text-align: center;
+  max-width: 100px;
+  padding: 14px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  color: $purple;
+  background-color: rgba($purple, 0.08);
+
+  i {
+    font-size: 10px;
+    margin-right: 5px;
+  }
+
+  &.paid {
+    color: $paid;
+    background-color: rgba($paid, 0.08);
+  }
+
+  &.pending {
+    color: $pending;
+    background-color: rgba($pending, 0.08);
+  }
+
+  &.draft {
+    color: $draft;
+    background-color: #{rgba($draft, 0.08)};
+    
+  }
 }
 
 
 .btn {
   position: relative;
   appearance: none;
-  border: 1px solid $border-color;
+  border: 1px solid transparent;
   background-color: $body-bg-color;
   padding: 14px 24px;
   color: $btn-text-color;

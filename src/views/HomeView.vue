@@ -19,12 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-p {
-  @include body;
-}
 .home {
   width: calc(100% - 80px);
-  max-width: 1080px;
-  margin: 10px auto;
 }
 </style>

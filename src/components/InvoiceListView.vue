@@ -74,17 +74,15 @@ export default {
     gap: 16px;
     padding: 0 10px 0 0;
     .invoice-card {
-      // width: 100%;
       display: inline-flex;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
       justify-content: space-between;
-      padding: 0 14px;
       align-items: center;
+      gap: 10px;
+      padding: 0 14px;
       box-shadow: $shadow-light;
-      background-color: $white;
+      background-color: $bg-color;
       border-radius: 8px;
-      border: 1px solid $white;
+      border: 1px solid $border-color;
       transition: border 0.3s ease-in-out;
       cursor: pointer;
       &:hover {
@@ -97,31 +95,7 @@ export default {
       }
 
       .status {
-        position: relative;
-        text-transform: capitalize;
-        text-align: center;
-        max-width: 100px;
         padding: 14px 0;
-        border-radius: 8px;
-        font-weight: 600;
-        color: $purple;
-        background-color: rgba($purple, 0.05);
-        i {
-          font-size: 10px;
-          margin-right: 5px;
-        }
-        &.paid {
-          color: $paid;
-          background-color: rgba($paid, 0.05);
-        }
-        &.pending {
-          color: $pending;
-          background-color: rgba($pending, 0.05);
-        }
-        &.draft {
-          color: $draft;
-          background-color: rgba($draft, 0.05);
-        }
       }
 
       .icon {
