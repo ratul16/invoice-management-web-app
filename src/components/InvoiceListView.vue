@@ -35,7 +35,7 @@
 <script>
 import { useStore } from "../stores/store";
 export default {
-  name: "invoiceList",
+  name: "InvoiceListView",
   setup() {
     const store = useStore();
     return {

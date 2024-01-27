@@ -1,18 +1,18 @@
 <template>
   <div class="home">
     <HeaderComponent />
-    <InvoiceList />
+    <InvoiceListView />
   </div>
 </template>
 
 <script>
-import InvoiceList from "@/components/invoiceList.vue";
+import InvoiceListView from "@/components/InvoiceListView.vue";
 import HeaderComponent from "@/components/HeaderComponent.vue";
 
 export default {
   name: "HomeView",
   components: {
-    InvoiceList,
+    InvoiceListView,
     HeaderComponent,
   },
 };
