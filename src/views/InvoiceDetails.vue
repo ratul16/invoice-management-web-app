@@ -80,7 +80,7 @@
         </div>
       </div>
     </div>
-    <FormSideBar />
+    <FormSideBar v-if="false" />
   </div>
 </template>
 
@@ -124,27 +124,33 @@ export default {
     @include body;
     color: $btn-text-color;
   }
+
   .price::before {
     content: "£";
     margin-right: 4px;
   }
 
   width: calc(100% - 80px);
+
   .return {
     margin-bottom: 20px;
     cursor: pointer;
+
     i {
       margin-right: 26px;
       color: $purple;
     }
+
     span {
       transition: color 0.3s ease-in-out;
       @include heading-s;
+
       &:hover {
         color: $purple;
       }
     }
   }
+
   .header {
     display: flex;
     align-items: center;
@@ -154,11 +160,13 @@ export default {
     margin-bottom: 26px;
     border-radius: 8px;
     box-shadow: $shadow-light;
-    & > div {
+
+    &>div {
       .label {
         color: $btn-text-color;
         @include body;
       }
+
       .status {
         padding: 14px 24px;
         margin-left: 20px;
@@ -169,11 +177,13 @@ export default {
       margin-right: 10px;
     }
   }
+
   .content-body {
     background-color: $bg-color;
     padding: var(--padding);
     border-radius: 8px;
     box-shadow: $shadow-light;
+
     .description {
       display: flex;
       align-items: start;
@@ -183,25 +193,31 @@ export default {
         color: $btn-text-color;
         font-weight: 700;
       }
+
       p {
         // margin-top: 10px;
         color: $btn-text-color;
       }
+
       .address {
         align-items: end;
       }
     }
+
     .client-info {
       display: grid;
       justify-content: space-between;
       grid-template-columns: 1fr 1fr 2fr;
       margin-bottom: 30px;
+
       h6 {
         margin: 10px 0;
       }
+
       .date div:is(:not(:last-child)) {
         margin-bottom: 20px;
       }
+
       .address {
         align-items: start;
       }
@@ -214,6 +230,7 @@ export default {
       padding: 30px;
       background-color: $body-bg-color;
       border-radius: 8px 8px 0 0;
+
       .item {
         display: grid;
         grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -223,20 +240,25 @@ export default {
         &.heading {
           @include body;
         }
+
         span {
           flex: 1 0;
+
           &:last-child {
             text-align: right;
           }
+
           &:nth-child(2) {
             text-align: center;
           }
+
           &:nth-child(3) {
             text-align: right;
           }
         }
       }
     }
+
     .footer {
       display: flex;
       align-items: center;
@@ -249,6 +271,4 @@ export default {
   }
 }
 
-@include media-queries("tab") {
-}
-</style>
+@include media-queries("tab") {}</style>
