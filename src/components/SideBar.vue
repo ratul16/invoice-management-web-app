@@ -54,8 +54,9 @@ export default {
   top: 0;
   bottom: 0;
   overflow: hidden;
-  max-width: 100px;
+  max-width: 80px;
   height: 100vh;
+  z-index: 6;
   border-radius: 0 20px 20px 0;
   background-color: $element-bg-color;
   display: flex;

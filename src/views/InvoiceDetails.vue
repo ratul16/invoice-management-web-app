@@ -14,8 +14,8 @@
             {{ invoice.status ? invoice.status : "" }}
           </span>
         </div>
-        <div class="btn-group">
-          <button class="btn">Edit</button>
+        <div class="action-btn">
+          <button class="btn" @click="isSidebarOpen != isSidebarOpen">Edit</button>
           <button class="btn danger">Delete</button>
           <button class="btn primary">Mark as Paid</button>
         </div>
@@ -56,7 +56,7 @@
             </div>
           </div>
           <div class="email">
-            <label for="bill_to">Bill To</label>
+            <label for="bill_to">Sent To</label>
             <h6>{{ invoice.clientEmail }}</h6>
           </div>
         </div>
@@ -80,14 +80,19 @@
         </div>
       </div>
     </div>
+    <FormSideBar />
   </div>
 </template>
 
 <script>
 import { useStore } from "@/stores/store";
+import FormSideBar from "@/components/FormSideBar.vue";
 
 export default {
   name: "InvoiceDetails",
+  components: {
+    FormSideBar,
+  },
   setup() {
     const store = useStore();
     return {
@@ -97,6 +102,7 @@ export default {
   data() {
     return {
       invoice: null,
+      isSidebarOpen: false,
     };
   },
   mounted() {
@@ -159,7 +165,7 @@ export default {
       }
     }
 
-    .btn-group button:is(:not(:last-child)) {
+    .action-btn button:is(:not(:last-child)) {
       margin-right: 10px;
     }
   }
@@ -241,5 +247,8 @@ export default {
       border-radius: 0 0 8px 8px;
     }
   }
+}
+
+@include media-queries("tab") {
 }
 </style>
