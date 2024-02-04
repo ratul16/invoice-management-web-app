@@ -31,17 +31,22 @@ export default {
   --dp-text-color: #{$body-text-color};
   --dp-border-color: #{$border-color};
   --dp-input-icon-padding: 44px;
+  --dp-background-color: #{$body-bg-color};
 }
+
 .dp__theme_light {
   --dp-icon-color: #{$grey-dark};
   --dp-primary-color: #{$purple};
+
   i {
     margin-left: 20px;
   }
 }
+
 .dp__theme_dark {
   --dp-icon-color: #{$grey};
   --dp-primary-color: #{$purple-light};
+
   i {
     margin-left: 20px;
   }

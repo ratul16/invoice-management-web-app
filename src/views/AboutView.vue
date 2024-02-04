@@ -30,9 +30,9 @@
 
       <div>
         <label for="">Input Label</label>
+        <input type="text" placeholder="Hello world" />
         <SelectComponent />
         <DatePickerComponent />
-        <input type="text" placeholder="Hello world" />
       </div>
     </div>
   </div>

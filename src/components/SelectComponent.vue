@@ -21,12 +21,13 @@ export default {
     return {
       toggle: false,
       label: "Select an option",
-      options: ["Option 1", "Option 2", "Option 3"],
+      options: ["Terms 1", "Terms 2", "Terms 3"],
     };
   },
   methods: {
     toggleOptions() {
       this.toggle = !this.toggle;
+      console.log(this.toggle);
     },
     getSelectedOption(option, event) {
       event.stopPropagation();
@@ -75,6 +76,7 @@ export default {
 
 .select-options {
   @include button;
+  padding-left: 0;
   position: absolute;
   z-index: 999;
   width: 100%;

@@ -68,8 +68,8 @@ export default {
 <style lang="scss" scoped>
 .invoice-list {
   .invoice-wrapper {
-    max-height: 540px;
-    overflow-y: scroll;
+    // max-height: 540px;
+    // overflow-y: scroll;
     display: grid;
     gap: 16px;
     padding: 0 10px 0 0;
