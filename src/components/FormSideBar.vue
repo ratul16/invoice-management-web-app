@@ -104,7 +104,7 @@
                   <input type="text" class="form-control" :id="`price-${index}`" v-model="i.price" />
                 </div>
                 <div class="col-md-2">
-                  {{ i.quantity * i.price }}
+                  £ {{ i.quantity * i.price }}
                 </div>
                 <div class="col-md-1" :id="index">
                   <i class="fa-solid fa-trash"></i>
@@ -153,8 +153,7 @@ export default {
         senderAddress: {},
         clientAddress: {},
         items: [
-          { name: "Banner Design", quantity: 1, price: 156, total: 156 },
-          { name: "Email Design", quantity: 2, price: 200, total: 400 }
+          { name: "", quantity: 0, price: 0, total: 0 },
         ]
       },
     };
@@ -251,7 +250,7 @@ export default {
   }
 
   .add-edit-form {
-    position: relative;
+
 
     h6 {
       color: $purple;
@@ -262,10 +261,16 @@ export default {
     }
 
     .form-footer {
+      position: sticky;
+      right: 0;
+      bottom: -10px;
       width: 100%;
       display: flex;
       justify-content: space-between;
       gap: 10px;
+      background-color: $bg-color;
+      // padding: 10px 0;
+      box-shadow: 0px 20px $bg-color, 0px -20px $bg-color;
 
       .draft {
         margin-left: auto;
