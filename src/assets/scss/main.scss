@@ -195,11 +195,13 @@ label {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+.form-select,
+option {
   padding: 14px 20px;
   border: 1px solid $border-color;
   border-radius: 4px;
-  @include button;
+  @include body;
   color: $body-text-color;
   background-color: $body-bg-color;
   display: block;

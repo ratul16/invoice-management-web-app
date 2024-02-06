@@ -92,6 +92,7 @@
       </div>
     </section>
     <div class="form-footer">
+      <button class="btn left">Discard</button>
       <button class="btn draft">Cancel</button>
       <button class="btn primary">Save Changes</button>
     </div>
@@ -114,17 +115,28 @@ export default {
 <style lang="scss" scoped>
 .add-edit-form {
   position: relative;
+
   h6 {
     color: $purple;
   }
+
   section {
     margin-bottom: 26px;
   }
+
   .form-footer {
-    position: fixed;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+
+    .left {
+      margin-right: auto;
+    }
+
+    .draft {
+      margin-left: auto;
+    }
   }
 }
 </style>

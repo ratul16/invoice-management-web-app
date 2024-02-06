@@ -15,7 +15,7 @@
           </span>
         </div>
         <div class="action-btn">
-          <button class="btn" @click="isSidebarOpen != isSidebarOpen">Edit</button>
+          <button class="btn" @click="toggleSidebar">Edit</button>
           <button class="btn danger">Delete</button>
           <button class="btn primary">Mark as Paid</button>
         </div>
@@ -80,7 +80,7 @@
         </div>
       </div>
     </div>
-    <FormSideBar v-if="false" />
+    <FormSideBar :isVisible="isSidebarOpen" :invoice="invoice" @close="toggleSidebar" v-if="this.isSidebarOpen" />
   </div>
 </template>
 
@@ -108,6 +108,11 @@ export default {
   mounted() {
     if (this.$route.params.id) {
       this.invoice = this.store.getInvoiceDetails(this.$route.params.id)[0];
+    }
+  },
+  methods: {
+    toggleSidebar() {
+      this.isSidebarOpen = !this.isSidebarOpen;
     }
   },
 };
@@ -271,4 +276,5 @@ export default {
   }
 }
 
-@include media-queries("tab") {}</style>
+@include media-queries("tab") {}
+</style>

@@ -1,5 +1,6 @@
 <template>
-  <VueDatePicker v-model="date" :enable-time-picker="false" auto-apply class="date-picker">
+  <VueDatePicker v-model="date" :enableTimePicker="false" auto-apply class="date-picker"
+    @update:model-value="dateSelected" format="yyyy-MM-dd">
     <template #input-icon>
       <i class="fa-regular fa-calendar"></i>
     </template>
@@ -11,6 +12,12 @@ import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 export default {
   name: "DatePickerComponent",
+  props: {
+    paymentDue: {
+      type: String,
+      default: ''
+    },
+  },
   components: {
     VueDatePicker,
   },
@@ -19,6 +26,21 @@ export default {
       date: "",
     };
   },
+
+  methods: {
+    dateSelected() {
+      const date = new Date(this.date);
+      const day = date.getDate();
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      this.$emit('dateUpdated', `${year}-${month}-${day}`);
+    }
+  },
+  watch: {
+    paymentDue(newValue, oldValue) {
+      this.date = newValue;
+    }
+  }
 };
 </script>
 
