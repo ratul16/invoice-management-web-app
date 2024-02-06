@@ -120,7 +120,7 @@
           </div>
         </section>
         <div class="form-footer">
-          <button class="btn left" @click="close">Discard</button>
+          <button v-if="!invoice.id" class="btn danger" @click="close">Discard</button>
           <button class="btn draft" @click="close">Cancel</button>
           <button class="btn primary">Save Changes</button>
         </div>
@@ -266,10 +266,6 @@ export default {
       display: flex;
       justify-content: space-between;
       gap: 10px;
-
-      .left {
-        margin-right: auto;
-      }
 
       .draft {
         margin-left: auto;
