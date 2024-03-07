@@ -82,7 +82,7 @@ p {
   text-transform: capitalize;
   text-align: center;
   max-width: 100px;
-  padding: 14px 0;
+  padding: 10px 0;
   border-radius: 8px;
   font-weight: 600;
   color: $purple;
@@ -196,6 +196,7 @@ label {
 
 input[type="text"],
 input[type="email"],
+input[type="number"],
 .form-select,
 option {
   padding: 14px 20px;
@@ -212,4 +213,11 @@ option {
     outline: none;
     box-shadow: 0 0 0 0.25rem rgba($purple, 0.25);
   }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

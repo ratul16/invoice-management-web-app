@@ -1,8 +1,14 @@
 <template>
-  <div class="form-side-bar" :class="isVisible ? 'active' : ''">
+  <div
+    class="form-side-bar"
+    :class="isVisible ? 'active' : ''"
+  >
     <div class="form-body">
-      <h4 v-if="invoice" class="mb-4">
-        {{ invoice.id ? 'Edit' : 'New Invoice' }}
+      <h4
+        v-if="invoice"
+        class="mb-4"
+      >
+        {{ invoice.id ? "Edit" : "New Invoice" }}
         <b>#</b>{{ invoice.id }}
       </h4>
       <div class="add-edit-form">
@@ -12,20 +18,56 @@
           <h6>Bill From</h6>
           <div class="row g-3">
             <div class="col-md-12">
-              <label for="address" class="form-label">Street Address</label>
-              <input type="text" class="form-control" id="address" v-model="formData.senderAddress.street" />
+              <label
+                for="address"
+                class="form-label"
+                >Street Address</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                v-model="formData.senderAddress.street"
+              />
             </div>
             <div class="col-md-4">
-              <label for="city" class="form-label">City</label>
-              <input type="text" class="form-control" id="city" v-model="formData.senderAddress.city" />
+              <label
+                for="city"
+                class="form-label"
+                >City</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                v-model="formData.senderAddress.city"
+              />
             </div>
             <div class="col-md-4">
-              <label for="postcode" class="form-label">Post Code</label>
-              <input type="text" class="form-control" id="postcode" v-model="formData.senderAddress.postCode" />
+              <label
+                for="postcode"
+                class="form-label"
+                >Post Code</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="postcode"
+                v-model="formData.senderAddress.postCode"
+              />
             </div>
             <div class="col-md-4">
-              <label for="country" class="form-label">Country</label>
-              <input type="text" class="form-control" id="country" v-model="formData.senderAddress.country" />
+              <label
+                for="country"
+                class="form-label"
+                >Country</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="country"
+                v-model="formData.senderAddress.country"
+              />
             </div>
           </div>
         </section>
@@ -34,36 +76,106 @@
           <h6 class="heading-s">Bill To</h6>
           <div class="row g-3">
             <div class="col-md-12">
-              <label for="name" class="form-label">Client's Name</label>
-              <input type="text" class="form-control" id="name" v-model="formData.clientName" />
+              <label
+                for="name"
+                class="form-label"
+                >Client's Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                v-model="formData.clientName"
+              />
             </div>
             <div class="col-md-12">
-              <label for="email" class="form-label">Client's Email</label>
-              <input type="email" class="form-control" id="email" v-model="formData.clientEmail" />
+              <label
+                for="email"
+                class="form-label"
+                >Client's Email</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                v-model="formData.clientEmail"
+              />
             </div>
             <div class="col-md-12">
-              <label for="address" class="form-label">Street Address</label>
-              <input type="text" class="form-control" id="address" v-model="formData.clientAddress.street" />
+              <label
+                for="address"
+                class="form-label"
+                >Street Address</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                v-model="formData.clientAddress.street"
+              />
             </div>
             <div class="col-md-4">
-              <label for="city" class="form-label">City</label>
-              <input type="text" class="form-control" id="city" v-model="formData.clientAddress.city" />
+              <label
+                for="city"
+                class="form-label"
+                >City</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                v-model="formData.clientAddress.city"
+              />
             </div>
             <div class="col-md-4">
-              <label for="postcode" class="form-label">Post Code</label>
-              <input type="text" class="form-control" id="postcode" v-model="formData.clientAddress.postCode" />
+              <label
+                for="postcode"
+                class="form-label"
+                >Post Code</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="postcode"
+                v-model="formData.clientAddress.postCode"
+              />
             </div>
             <div class="col-md-4">
-              <label for="country" class="form-label">Country</label>
-              <input type="text" class="form-control" id="country" v-model="formData.clientAddress.country" />
+              <label
+                for="country"
+                class="form-label"
+              >
+                Country
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="country"
+                v-model="formData.clientAddress.country"
+              />
             </div>
             <div class="col-md-6">
-              <label for="date" class="form-label">Invoice Date</label>
-              <DatePickerComponent :paymentDue="formData.paymentDue" @dateUpdated="dateUpdated" />
+              <label
+                for="date"
+                class="form-label"
+                >Invoice Date</label
+              >
+              <DatePickerComponent
+                :paymentDue="formData.paymentDue"
+                @dateUpdated="dateUpdated"
+              />
             </div>
             <div class="col-md-6">
-              <label for="terms" class="form-label">Payment Terms</label>
-              <select v-model="formData.paymentTerms" class="form-select" id="terms">
+              <label
+                for="terms"
+                class="form-label"
+                >Payment Terms</label
+              >
+              <select
+                v-model="formData.paymentTerms"
+                class="form-select"
+                id="terms"
+              >
                 <option value="1">Net 1 Day</option>
                 <option value="7">Net 7 Days</option>
                 <option value="14">Net 14 Days</option>
@@ -79,40 +191,78 @@
             <div class="col-md-12">
               <div class="row justify-content-between align-items-center">
                 <div class="col-md-4">
-                  <label for="item-name" class="form-label">Item Name</label>
+                  <label
+                    for="item-name"
+                    class="form-label"
+                    >Item Name</label
+                  >
                 </div>
                 <div class="col-md-2">
-                  <label for="qty" class="form-label">Qty</label>
+                  <label
+                    for="qty"
+                    class="form-label"
+                    >Qty</label
+                  >
                 </div>
                 <div class="col-md-3">
-                  <label for="price" class="form-label">Price</label>
+                  <label
+                    for="price"
+                    class="form-label"
+                    >Price</label
+                  >
                 </div>
                 <div class="col-md-2">
-                  <label for="total" class="form-label">Total</label>
+                  <label
+                    for="total"
+                    class="form-label"
+                    >Total</label
+                  >
                 </div>
                 <div class="col-md-1"></div>
               </div>
-              <div class="row justify-content-between align-items-center mb-2" v-for="(i, index) in formData.items"
-                :key="index">
+              <div
+                class="row justify-content-between align-items-center mb-2"
+                v-for="(i, index) in formData.items"
+                :key="index"
+              >
                 <div class="col-md-4">
-                  <input type="text" class="form-control" :id="`item-name-${index}`" v-model="i.name" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    :id="`item-name-${index}`"
+                    v-model="i.name"
+                  />
                 </div>
                 <div class="col-md-2">
-                  <input type="text" class="form-control" :id="`qty-${index}`" v-model="i.quantity" />
+                  <input
+                    type="number"
+                    class="form-control"
+                    :id="`qty-${index}`"
+                    v-model="i.quantity"
+                  />
                 </div>
                 <div class="col-md-3">
-                  <input type="text" class="form-control" :id="`price-${index}`" v-model="i.price" />
+                  <input
+                    type="number"
+                    class="form-control"
+                    :id="`price-${index}`"
+                    v-model="i.price"
+                  />
                 </div>
-                <div class="col-md-2">
-                  £ {{ i.quantity * i.price }}
-                </div>
-                <div class="col-md-1" :id="index">
+                <div class="col-md-2">£ {{ i.quantity * i.price }}</div>
+                <div
+                  class="col-md-1"
+                  :id="index"
+                >
                   <i class="fa-solid fa-trash"></i>
                 </div>
               </div>
             </div>
             <div class="col-md-12">
-              <button class="btn draft btn-block">
+              <button
+                class="btn draft btn-block"
+                @click="addNewItem"
+              >
                 <i class="fa-solid fa-plus"></i>
                 Add New Item
               </button>
@@ -120,9 +270,25 @@
           </div>
         </section>
         <div class="form-footer">
-          <button v-if="!invoice.id" class="btn danger" @click="close">Discard</button>
-          <button class="btn draft" @click="close">Cancel</button>
-          <button class="btn primary">Save Changes</button>
+          <button
+            v-if="!invoice.id"
+            class="btn danger"
+            @click="close"
+          >
+            Discard
+          </button>
+          <button
+            class="btn draft"
+            @click="close"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn primary"
+            @click="invoiceUpdated"
+          >
+            Save Changes
+          </button>
         </div>
       </div>
     </div>
@@ -144,7 +310,7 @@ export default {
     },
     invoice: {
       type: Object,
-      default: () => { },
+      default: () => {},
     },
   },
   data() {
@@ -152,9 +318,7 @@ export default {
       formData: {
         senderAddress: {},
         clientAddress: {},
-        items: [
-          { name: "", quantity: 0, price: 0, total: 0 },
-        ]
+        items: [{ name: "", quantity: 0, price: 0, total: 0 }],
       },
     };
   },
@@ -166,11 +330,27 @@ export default {
   },
   methods: {
     close() {
-      this.$emit('close');
+      this.$emit("close");
     },
     dateUpdated(val) {
       this.formData.paymentDue = val;
-    }
+    },
+    addNewItem() {
+      this.formData.items.push({ name: "", quantity: 0, price: 0, total: 0 });
+    },
+    invoiceUpdated() {
+      let data = JSON.parse(JSON.stringify(this.formData));
+      data.items = data.items.map((x) => {
+        return {
+          name: x.name,
+          quantity: x.quantity,
+          price: x.price,
+          total: x.price * x.quantity,
+        };
+      });
+      this.$emit("updateInvoice", data);
+      this.close();
+    },
   },
 };
 </script>
@@ -250,8 +430,6 @@ export default {
   }
 
   .add-edit-form {
-
-
     h6 {
       color: $purple;
     }
@@ -270,7 +448,9 @@ export default {
       gap: 10px;
       background-color: $bg-color;
       // padding: 10px 0;
-      box-shadow: 0px 20px $bg-color, 0px -20px $bg-color;
+      box-shadow:
+        0px 20px $bg-color,
+        0px -20px $bg-color;
 
       .draft {
         margin-left: auto;

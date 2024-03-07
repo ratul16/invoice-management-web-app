@@ -1,12 +1,7 @@
 <template>
   <div class="invoice-list">
     <div class="invoice-wrapper" v-if="invoices.length">
-      <div
-        class="invoice-card"
-        v-for="invoice in invoices"
-        :key="invoice.id"
-        @click="getInvoiceDetails(invoice.id)"
-      >
+      <div class="invoice-card" v-for="invoice in invoices" :key="invoice.id" @click="getInvoiceDetails(invoice.id)">
         <span class="id"> <b>#</b>{{ invoice.id }} </span>
         <span class="due"> Due {{ invoice.paymentDue }} </span>
         <span class="name">
@@ -73,6 +68,7 @@ export default {
     display: grid;
     gap: 16px;
     padding: 0 10px 0 0;
+
     .invoice-card {
       display: inline-flex;
       justify-content: space-between;
@@ -85,6 +81,7 @@ export default {
       border: 1px solid $border-color;
       transition: border 0.3s ease-in-out;
       cursor: pointer;
+
       &:hover {
         border-color: $border-color;
       }
@@ -95,7 +92,7 @@ export default {
       }
 
       .status {
-        padding: 14px 0;
+        padding: 10px 0;
       }
 
       .icon {
@@ -115,6 +112,7 @@ export default {
         @include body;
         color: $btn-text-color;
       }
+
       .total,
       .id {
         @include heading-s;
@@ -125,19 +123,23 @@ export default {
       }
     }
   }
+
   .empty {
     min-height: 500px;
     display: grid;
     place-items: center;
     text-align: center;
+
     img {
       margin-bottom: 30px;
     }
+
     .content {
       h4 {
         @include heading-s;
         margin-bottom: 10px;
       }
+
       p {
         color: $grey-dark;
         @include body;

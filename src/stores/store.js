@@ -251,6 +251,10 @@ export const useStore = defineStore({
     setTheme(value) {
       this.theme = value;
     },
+    updateInvoice(invoiceData) {
+      const foundIndex = this.invoiceList.findIndex(item => item.id == invoiceData.id);
+      this.invoiceList[foundIndex] = invoiceData;
+    },
     getInvoiceDetails(id) {
       const result = this.invoiceList.filter(invoice => invoice.id === id);
       return result;

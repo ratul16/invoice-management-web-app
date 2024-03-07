@@ -1,21 +1,35 @@
 <template>
   <div class="invoice-details">
-    <div class="return" @click="$router.push({ name: 'home' })">
+    <div
+      class="return"
+      @click="$router.push({ name: 'home' })"
+    >
       <i class="fa-solid fa-angle-left"></i>
       <span>Go Back</span>
     </div>
     <!-- {{ $route.params ? $route.params.id : "Not Id Found" }} -->
-    <div class="invoice" v-if="invoice">
+    <div
+      class="invoice"
+      v-if="invoice"
+    >
       <div class="header">
         <div>
           <span class="label">Status</span>
-          <span class="status" :class="invoice.status ? invoice.status : ''">
+          <span
+            class="status"
+            :class="invoice.status ? invoice.status : ''"
+          >
             <i class="fa-solid fa-circle"></i>
             {{ invoice.status ? invoice.status : "" }}
           </span>
         </div>
         <div class="action-btn">
-          <button class="btn" @click="toggleSidebar">Edit</button>
+          <button
+            class="btn"
+            @click="toggleSidebar"
+          >
+            Edit
+          </button>
           <button class="btn danger">Delete</button>
           <button class="btn primary">Mark as Paid</button>
         </div>
@@ -30,7 +44,10 @@
           </div>
           <div class="address">
             <!-- {{ invoice.senderAddress }} -->
-            <span v-for="(a, index) in invoice.senderAddress" :key="index">
+            <span
+              v-for="(a, index) in invoice.senderAddress"
+              :key="index"
+            >
               {{ a }}
             </span>
           </div>
@@ -50,7 +67,10 @@
             <label for="bill_to">Bill To</label>
             <h6>{{ invoice.clientName }}</h6>
             <div class="address">
-              <span v-for="(a, index) in invoice.clientAddress" :key="index">
+              <span
+                v-for="(a, index) in invoice.clientAddress"
+                :key="index"
+              >
                 {{ a }}
               </span>
             </div>
@@ -67,7 +87,11 @@
             <span>Price</span>
             <span>Total</span>
           </div>
-          <div class="item" v-for="(i, index) in invoice.items" :key="index">
+          <div
+            class="item"
+            v-for="(i, index) in invoice.items"
+            :key="index"
+          >
             <span>{{ i.name }}</span>
             <span>{{ i.quantity }}</span>
             <span class="price">{{ i.price.toFixed(2) }}</span>
@@ -80,7 +104,13 @@
         </div>
       </div>
     </div>
-    <FormSideBar :isVisible="isSidebarOpen" :invoice="invoice" @close="toggleSidebar" v-if="this.isSidebarOpen" />
+    <FormSideBar
+      v-if="this.isSidebarOpen"
+      :isVisible="isSidebarOpen"
+      :invoice="invoice"
+      @close="toggleSidebar"
+      @updateInvoice="updateInvoice"
+    />
   </div>
 </template>
 
@@ -113,7 +143,18 @@ export default {
   methods: {
     toggleSidebar() {
       this.isSidebarOpen = !this.isSidebarOpen;
-    }
+    },
+    updateInvoice(data) {
+      let formattedData = data;
+      formattedData.total = formattedData.items.reduce((acc, item) => acc + item.total, 0);
+      this.invoice = formattedData;
+      this.store.updateInvoice(formattedData);
+    },
+  },
+  computed: {
+    getTotalAmount() {
+      return this.invoice.items.reduce((acc, item) => acc + item.total, 0);
+    },
   },
 };
 </script>
@@ -166,7 +207,7 @@ export default {
     border-radius: 8px;
     box-shadow: $shadow-light;
 
-    &>div {
+    & > div {
       .label {
         color: $btn-text-color;
         @include body;
@@ -276,5 +317,6 @@ export default {
   }
 }
 
-@include media-queries("tab") {}
+@include media-queries("tab") {
+}
 </style>
