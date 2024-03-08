@@ -1,7 +1,12 @@
 <template>
   <div class="invoice-list">
     <div class="invoice-wrapper" v-if="invoices.length">
-      <div class="invoice-card" v-for="invoice in invoices" :key="invoice.id" @click="getInvoiceDetails(invoice.id)">
+      <div
+        class="invoice-card"
+        v-for="invoice in invoices"
+        :key="invoice.id"
+        @click="getInvoiceDetails(invoice.id)"
+      >
         <span class="id"> <b>#</b>{{ invoice.id }} </span>
         <span class="due"> Due {{ invoice.paymentDue }} </span>
         <span class="name">
@@ -29,6 +34,7 @@
 
 <script>
 import { useStore } from "../stores/store";
+
 export default {
   name: "InvoiceListView",
   setup() {
