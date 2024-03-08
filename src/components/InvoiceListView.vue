@@ -73,7 +73,6 @@ export default {
     // overflow-y: scroll;
     display: grid;
     gap: 16px;
-    padding: 0 10px 0 0;
 
     .invoice-card {
       display: inline-flex;

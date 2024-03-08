@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home container">
     <HeaderComponent />
     <InvoiceListView />
   </div>
@@ -18,8 +18,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.home {
-  width: calc(100% - 80px);
-}
-</style>
+<style lang="scss" scoped></style>

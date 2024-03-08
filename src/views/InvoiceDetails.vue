@@ -1,5 +1,5 @@
 <template>
-  <div class="invoice-details">
+  <div class="invoice-details container">
     <div class="return" @click="$router.push({ name: 'home' })">
       <i class="fa-solid fa-angle-left"></i>
       <span>Go Back</span>
@@ -259,8 +259,6 @@ export default {
     margin-right: 4px;
   }
 
-  width: calc(100% - 80px);
-
   .return {
     margin-bottom: 20px;
     cursor: pointer;
@@ -367,9 +365,6 @@ export default {
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        // .status {
-        //   display: inline-block;
-        // }
       }
       .action-btn {
         display: none;
