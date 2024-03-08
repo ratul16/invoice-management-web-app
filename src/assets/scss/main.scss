@@ -223,13 +223,16 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .modal {
   .modal-content {
+    padding: 14px;
     @include body;
     color: $body-text-color;
-    background-color: $element-bg-color;
+    background-color: $modal-bg-color;
+    border: none;
+    border-radius: 8px;
   }
 
   .modal-footer {
-    border-top: $element-bg-color;
+    border-top: $modal-bg-color;
   }
 }
 
