@@ -1,102 +1,108 @@
 <template>
   <div class="invoice-details">
-    <div
-      class="return"
-      @click="$router.push({ name: 'home' })"
-    >
+    <div class="return" @click="$router.push({ name: 'home' })">
       <i class="fa-solid fa-angle-left"></i>
       <span>Go Back</span>
     </div>
     <!-- {{ $route.params ? $route.params.id : "Not Id Found" }} -->
-    <div
-      class="invoice"
-      v-if="invoice"
-    >
+    <div class="invoice" v-if="invoice">
       <div class="header">
         <div>
           <span class="label">Status</span>
-          <span
-            class="status"
-            :class="invoice.status ? invoice.status : ''"
-          >
+          <span class="status" :class="invoice.status ? invoice.status : ''">
             <i class="fa-solid fa-circle"></i>
             {{ invoice.status ? invoice.status : "" }}
           </span>
         </div>
         <div class="action-btn">
+          <button class="btn" @click="toggleSidebar">Edit</button>
           <button
-            class="btn"
-            @click="toggleSidebar"
+            type="button"
+            class="btn danger"
+            data-bs-toggle="modal"
+            data-bs-target="#confirmationModal"
+            @click="openConfirmationModal('delete')"
           >
-            Edit
+            Delete
           </button>
-          <button class="btn danger">Delete</button>
-          <button class="btn primary">Mark as Paid</button>
+          <button
+            v-if="invoice.status !== 'paid'"
+            type="button"
+            class="btn primary"
+            data-bs-toggle="modal"
+            data-bs-target="#confirmationModal"
+            @click="openConfirmationModal('payment')"
+          >
+            Mark as Paid
+          </button>
         </div>
       </div>
       <div class="content-body">
-        <div class="description">
-          <div>
-            <h6><b>#</b>{{ invoice.id }}</h6>
-            <p>
+        <section class="row g-2 justify-content-between align-items-start mb-4">
+          <div class="col-md-2 col-sm-6">
+            <h6 class="mb-2 invoice-id"><b>#</b>{{ invoice.id }}</h6>
+            <p class="description">
               {{ invoice.description }}
             </p>
           </div>
-          <div class="address">
-            <!-- {{ invoice.senderAddress }} -->
-            <span
-              v-for="(a, index) in invoice.senderAddress"
-              :key="index"
-            >
-              {{ a }}
-            </span>
-          </div>
-        </div>
-        <div class="client-info">
-          <div class="date">
-            <div>
-              <label for="invoice_date">Invoice Date</label>
-              <h6 id="invoice_date">{{ invoice.createdAt }}</h6>
-            </div>
-            <div>
-              <label for="payment_due">Payment Date</label>
-              <h6 id="payment_due">{{ invoice.paymentDue }}</h6>
-            </div>
-          </div>
-          <div class="bill">
-            <label for="bill_to">Bill To</label>
-            <h6>{{ invoice.clientName }}</h6>
+          <div class="col-md-3 col-sm-6">
             <div class="address">
-              <span
-                v-for="(a, index) in invoice.clientAddress"
-                :key="index"
-              >
+              <span v-for="(a, index) in invoice.senderAddress" :key="index">
                 {{ a }}
               </span>
             </div>
           </div>
-          <div class="email">
-            <label for="bill_to">Sent To</label>
-            <h6>{{ invoice.clientEmail }}</h6>
+        </section>
+        <section class="client-info mb-4">
+          <div class="row g-2 justify-content-between align-items-start">
+            <div class="col-md-3 col-sm-6">
+              <div>
+                <label for="invoice_date" class="mb-2">Invoice Date</label>
+                <h6 id="invoice_date" class="mb-2">{{ invoice.createdAt }}</h6>
+              </div>
+              <div>
+                <label for="payment_due" class="mb-2">Payment Date</label>
+                <h6 id="payment_due" class="mb-2">{{ invoice.paymentDue }}</h6>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <label for="bill_to" class="mb-2">Bill To</label>
+              <h6 class="mb-2">{{ invoice.clientName }}</h6>
+              <div class="address">
+                <span v-for="(a, index) in invoice.clientAddress" :key="index">
+                  {{ a }}
+                </span>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <label for="bill_to" class="mb-2">Sent To</label>
+              <h6>{{ invoice.clientEmail }}</h6>
+            </div>
           </div>
-        </div>
-        <div class="items-preview">
-          <div class="item heading">
-            <span>Item Name</span>
-            <span>Qty</span>
-            <span>Price</span>
-            <span>Total</span>
-          </div>
-          <div
-            class="item"
-            v-for="(i, index) in invoice.items"
-            :key="index"
-          >
-            <span>{{ i.name }}</span>
-            <span>{{ i.quantity }}</span>
-            <span class="price">{{ i.price.toFixed(2) }}</span>
-            <span class="price">{{ i.total.toFixed(2) }}</span>
-          </div>
+        </section>
+        <div class="items-preview table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr class="heading">
+                <th scope="col">Item Name</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(i, index) in invoice.items" :key="index">
+                <td scope="row">{{ i.name }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>
+                  <span class="price">{{ i.price.toFixed(2) }}</span>
+                </td>
+                <td>
+                  <span class="price">{{ i.total.toFixed(2) }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="footer">
           <span> Amount Due </span>
@@ -104,24 +110,63 @@
         </div>
       </div>
     </div>
-    <FormSideBar
+    <AddEditForm
       v-if="this.isSidebarOpen"
       :isVisible="isSidebarOpen"
       :invoice="invoice"
       @close="toggleSidebar"
       @updateInvoice="updateInvoice"
     />
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="confirmationModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4 class="mb-4">
+              Confirm {{ isAction === "delete" ? "Deletion" : "Payment Status" }}
+            </h4>
+            <p>
+              Are you sure you want to
+              {{ isAction === "delete" ? "delete" : "mark as paid" }} invoice <b>#</b
+              >{{ invoice && invoice.id ? invoice.id : "" }}? This action cannot be undone.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button ref="Close" type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
+            <button
+              v-if="isAction === 'delete'"
+              type="button"
+              class="btn danger"
+              @click="deleteInvoice"
+            >
+              Delete
+            </button>
+            <button type="button" class="btn primary" @click="markAsPaid" v-else>
+              Mark as paid
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { useStore } from "@/stores/store";
-import FormSideBar from "@/components/FormSideBar.vue";
+import AddEditForm from "@/components/AddEditForm.vue";
 
 export default {
   name: "InvoiceDetails",
   components: {
-    FormSideBar,
+    AddEditForm,
   },
   setup() {
     const store = useStore();
@@ -133,6 +178,7 @@ export default {
     return {
       invoice: null,
       isSidebarOpen: false,
+      isAction: "",
     };
   },
   mounted() {
@@ -149,6 +195,20 @@ export default {
       formattedData.total = formattedData.items.reduce((acc, item) => acc + item.total, 0);
       this.invoice = formattedData;
       this.store.updateInvoice(formattedData);
+    },
+    openConfirmationModal(action) {
+      this.isAction = action;
+    },
+    markAsPaid() {
+      this.$refs.Close.click();
+      let formattedData = this.invoice;
+      formattedData.status = "paid";
+      this.store.updateInvoice(formattedData);
+    },
+    deleteInvoice() {
+      this.$refs.Close.click();
+      this.store.deleteInvoice(this.invoice.id);
+      this.$router.push("/");
     },
   },
   computed: {
@@ -167,6 +227,7 @@ export default {
   .address {
     display: flex;
     flex-direction: column;
+    gap: 4px;
     @include body;
     color: $btn-text-color;
   }
@@ -229,79 +290,23 @@ export default {
     padding: var(--padding);
     border-radius: 8px;
     box-shadow: $shadow-light;
-
-    .description {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-
-      h6::first-letter {
-        color: $btn-text-color;
-        font-weight: 700;
-      }
-
-      p {
-        // margin-top: 10px;
-        color: $btn-text-color;
-      }
-
-      .address {
-        align-items: end;
-      }
+    @include body;
+    .invoice-id::first-letter {
+      color: $btn-text-color;
+      font-weight: 700;
     }
-
-    .client-info {
-      display: grid;
-      justify-content: space-between;
-      grid-template-columns: 1fr 1fr 2fr;
-      margin-bottom: 30px;
-
-      h6 {
-        margin: 10px 0;
-      }
-
-      .date div:is(:not(:last-child)) {
-        margin-bottom: 20px;
-      }
-
-      .address {
-        align-items: start;
-      }
+    .description {
+      color: $btn-text-color;
     }
 
     .items-preview {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
       padding: 30px;
       background-color: $body-bg-color;
       border-radius: 8px 8px 0 0;
-
-      .item {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 10px;
-        align-items: center;
-
-        &.heading {
-          @include body;
-        }
-
-        span {
-          flex: 1 0;
-
-          &:last-child {
-            text-align: right;
-          }
-
-          &:nth-child(2) {
-            text-align: center;
-          }
-
-          &:nth-child(3) {
-            text-align: right;
-          }
-        }
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 6px;
+        // border-radius: 50%;
       }
     }
 
@@ -310,7 +315,7 @@ export default {
       align-items: center;
       justify-content: space-between;
       padding: 20px var(--padding);
-      background-color: $element-bg-color;
+      background-color: $footer-bg-color;
       color: $white;
       border-radius: 0 0 8px 8px;
     }
