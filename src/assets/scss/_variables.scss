@@ -1,30 +1,30 @@
-$white: #FFFFFF;
+$white: #ffffff;
 $black: #141625;
 
-$purple: #7C5DFA;
-$purple-light: #9277FF;
+$purple: #7c5dfa;
+$purple-light: #9277ff;
 $navy: #252945;
-$navy-dark: #1E2139;
+$navy-dark: #1e2139;
 
-$grey: #DFE3FA;
-$grey-light: #888EB0;
-$grey-dark: #7E88C3;
-$matte: #0C0E16;
+$grey: #dfe3fa;
+$grey-light: #888eb0;
+$grey-dark: #7e88c3;
+$matte: #0c0e16;
 
-$red: #EC5757;
-$red-light: #FF9797;
-$bg-light:#F8F8FB;
+$red: #ec5757;
+$red-light: #ff9797;
+$bg-light: #f8f8fb;
 
 $border-light: $grey;
 $border-dark: $navy;
 $body-font-size: 14px;
-$shadow-light: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
-$shadow-dark: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
+$shadow-light: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+$shadow-dark: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
 $transition: all 0.3s ease-in-out;
 
 $paid: #33d69f;
-$pending: #FF8F00;
-$draft: #373B53;
+$pending: #ff8f00;
+$draft: #373b53;
 
 :root,
 :root[theme="light"] {
@@ -32,8 +32,9 @@ $draft: #373B53;
   --body-text-color: #{$black};
   --bg-color: #{$white};
   --border-color: #{$border-light};
-  --btn-text-color:#{$grey-dark};
-  --element-bg-color:#{$navy-dark};  
+  --btn-text-color: #{$grey-dark};
+  --element-bg-color: #{$navy-dark};
+  --footer-bg-color: #{$draft};
 }
 
 :root[theme="dark"] {
@@ -41,8 +42,9 @@ $draft: #373B53;
   --body-text-color: #{$white};
   --bg-color: #{$navy-dark};
   --border-color: #{$border-dark};
-  --btn-text-color:#{$grey-dark};
-  --element-bg-color:#{$navy};
+  --btn-text-color: #{$grey};
+  --element-bg-color: #{$navy};
+  --footer-bg-color: #{$matte};
 }
 
 $body-bg-color: var(--body-bg-color);
@@ -51,3 +53,4 @@ $bg-color: var(--bg-color);
 $border-color: var(--border-color);
 $btn-text-color: var(--btn-text-color);
 $element-bg-color: var(--element-bg-color);
+$footer-bg-color: var(--footer-bg-color);
