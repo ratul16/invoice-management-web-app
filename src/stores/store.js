@@ -245,15 +245,21 @@ export const useStore = defineStore({
     getTheme() {
       return this.theme;
     },
-
   },
   actions: {
     setTheme(value) {
       this.theme = value;
     },
+    addInvoice(invoice) {
+      this.invoiceList.push(invoice);
+    },
     updateInvoice(invoiceData) {
-      const foundIndex = this.invoiceList.findIndex(item => item.id == invoiceData.id);
+      const foundIndex = this.invoiceList.findIndex(item => item.id === invoiceData.id);
       this.invoiceList[foundIndex] = invoiceData;
+    },
+    deleteInvoice(invoiceID) {
+      let result = this.invoiceList.filter(item => item.id !== invoiceID);
+      this.invoiceList = result;
     },
     getInvoiceDetails(id) {
       const result = this.invoiceList.filter(invoice => invoice.id === id);
