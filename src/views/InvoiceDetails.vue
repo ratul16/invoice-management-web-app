@@ -7,11 +7,11 @@
     <!-- {{ $route.params ? $route.params.id : "Not Id Found" }} -->
     <div class="invoice" v-if="invoice">
       <div class="header">
-        <div>
+        <div class="overview">
           <span class="label">Status</span>
-          <span class="status" :class="invoice.status ? invoice.status : ''">
+          <span class="badge status" :class="invoice.status">
             <i class="fa-solid fa-circle"></i>
-            {{ invoice.status ? invoice.status : "" }}
+            {{ invoice.status }}
           </span>
         </div>
         <div class="action-btn">
@@ -109,6 +109,28 @@
           <h4 class="price">{{ invoice.total.toFixed(2) }}</h4>
         </div>
       </div>
+    </div>
+    <div class="mobile-action-btn" v-if="invoice">
+      <button class="btn" @click="toggleSidebar">Edit</button>
+      <button
+        type="button"
+        class="btn danger"
+        data-bs-toggle="modal"
+        data-bs-target="#confirmationModal"
+        @click="openConfirmationModal('delete')"
+      >
+        Delete
+      </button>
+      <button
+        v-if="invoice.status !== 'paid'"
+        type="button"
+        class="btn primary"
+        data-bs-toggle="modal"
+        data-bs-target="#confirmationModal"
+        @click="openConfirmationModal('payment')"
+      >
+        Mark as Paid
+      </button>
     </div>
     <AddEditForm
       v-if="this.isSidebarOpen"
@@ -244,7 +266,7 @@ export default {
     cursor: pointer;
 
     i {
-      margin-right: 26px;
+      margin-right: 14px;
       color: $purple;
     }
 
@@ -268,12 +290,12 @@ export default {
     border-radius: 8px;
     box-shadow: $shadow-light;
 
-    & > div {
+    .overview {
+      // flex: 1;
       .label {
         color: $btn-text-color;
         @include body;
       }
-
       .status {
         padding: 14px 24px;
         margin-left: 20px;
@@ -283,6 +305,15 @@ export default {
     .action-btn button:is(:not(:last-child)) {
       margin-right: 10px;
     }
+  }
+
+  .mobile-action-btn {
+    display: none;
+    margin-top: 26px;
+    background-color: $bg-color;
+    padding: var(--padding);
+    border-radius: 8px;
+    box-shadow: $shadow-light;
   }
 
   .content-body {
@@ -322,6 +353,28 @@ export default {
   }
 }
 
-@include media-queries("tab") {
+@include media-queries("tab-sm") {
+  .invoice-details {
+    .mobile-action-btn {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+    }
+    .header {
+      .overview {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        // .status {
+        //   display: inline-block;
+        // }
+      }
+      .action-btn {
+        display: none;
+      }
+    }
+  }
 }
 </style>

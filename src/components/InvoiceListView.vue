@@ -13,7 +13,7 @@
           {{ invoice.clientName }}
         </span>
         <span class="total"> £ {{ invoice.total }} </span>
-        <span class="status" :class="invoice.status">
+        <span class="badge status" :class="invoice.status">
           <i class="fa-solid fa-circle"></i>
           {{ invoice.status }}
         </span>
