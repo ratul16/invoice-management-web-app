@@ -1,0 +1,112 @@
+[
+  {
+    "email": "john.doe@example.com",
+    "name": "John Doe",
+    "password": "$2a$12$LQv3c1yqBWVHxkd0LQ4bLuBeB2HDtCCmixjvX2KWXfz8YbR4fJt.u",
+    "createdAt": {
+      "$date": "2024-01-15T10:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-15T10:30:00.000Z"
+    }
+  },
+  {
+    "email": "jane.smith@example.com",
+    "name": "Jane Smith",
+    "password": "$2a$12$LQv3c1yqBWVHxkd0LQ4bLuBeB2HDtCCmixjvX2KWXfz8YbR4fJt.u",
+    "createdAt": {
+      "$date": "2024-01-16T09:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-16T09:15:00.000Z"
+    }
+  },
+  {
+    "email": "mike.johnson@example.com",
+    "name": "Mike Johnson",
+    "password": "$2a$12$LQv3c1yqBWVHxkd0LQ4bLuBeB2HDtCCmixjvX2KWXfz8YbR4fJt.u",
+    "createdAt": {
+      "$date": "2024-01-17T14:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-17T14:20:00.000Z"
+    }
+  },
+  {
+    "email": "sarah.wilson@example.com",
+    "name": "Sarah Wilson",
+    "password": "$2a$12$LQv3c1yqBWVHxkd0LQ4bLuBeB2HDtCCmixjvX2KWXfz8YbR4fJt.u",
+    "createdAt": {
+      "$date": "2024-01-18T11:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-18T11:45:00.000Z"
+    }
+  },
+  {
+    "email": "alex.brown@example.com",
+    "name": "Alex Brown",
+    "password": "$2a$12$LQv3c1yqBWVHxkd0LQ4bLuBeB2HDtCCmixjvX2KWXfz8YbR4fJt.u",
+    "createdAt": {
+      "$date": "2024-01-19T16:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-19T16:30:00.000Z"
+    }
+  },
+  {
+    "email": "emily.davis@example.com",
+    "name": "Emily Davis",
+    "password": "$2a$12$LQv3c1yqBWVHxkd0LQ4bLuBeB2HDtCCmixjvX2KWXfz8YbR4fJt.u",
+    "createdAt": {
+      "$date": "2024-01-20T08:10:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-20T08:10:00.000Z"
+    }
+  },
+  {
+    "email": "david.miller@example.com",
+    "name": "David Miller",
+    "password": "$2a$12$LQv3c1yqBWVHxkd0LQ4bLuBeB2HDtCCmixjvX2KWXfz8YbR4fJt.u",
+    "createdAt": {
+      "$date": "2024-01-21T13:25:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-21T13:25:00.000Z"
+    }
+  },
+  {
+    "email": "lisa.garcia@example.com",
+    "name": "Lisa Garcia",
+    "password": "$2a$12$LQv3c1yqBWVHxkd0LQ4bLuBeB2HDtCCmixjvX2KWXfz8YbR4fJt.u",
+    "createdAt": {
+      "$date": "2024-01-22T15:40:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-22T15:40:00.000Z"
+    }
+  },
+  {
+    "email": "admin@invoiceapp.com",
+    "name": "Admin User",
+    "password": "$2a$12$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+    "createdAt": {
+      "$date": "2024-01-10T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-10T12:00:00.000Z"
+    }
+  },
+  {
+    "email": "test@test.com",
+    "name": "Test User",
+    "password": "$2a$12$t25E6pFnT8NXiEGaEAFiT..W4R3zv5w1Qy9QoYJJ5TZwOK4Y1U1u.",
+    "createdAt": {
+      "$date": "2024-01-23T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-01-23T10:00:00.000Z"
+    }
+  }
+]
