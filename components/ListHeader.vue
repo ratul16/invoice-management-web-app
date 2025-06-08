@@ -1,5 +1,10 @@
 <script setup>
 const filters = ref(['Backlog', 'Todo', 'In Progress', 'Done'])
+const showSidebar = ref(false)
+
+function toggleSidebar() {
+  showSidebar.value = !showSidebar.value
+}
 </script>
 
 <template>
@@ -19,15 +24,14 @@ const filters = ref(['Backlog', 'Todo', 'In Progress', 'Done'])
         size="xl"
         icon="lucide:plus"
         label="New Invoice"
+        class="cursor-pointer"
+        @click="toggleSidebar"
       />
     </div>
-    <!-- <AddEditForm
-      v-if="isSidebarOpen"
-      :isVisible="isSidebarOpen"
+    <AddEditForm
+      v-model:is-visible="showSidebar"
       :invoice="invoiceData"
-      @updateInvoice="addInvoice"
-      @close="toggleSidebar"
-    /> -->
+    />
   </div>
 </template>
 
