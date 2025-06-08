@@ -1,0 +1,91 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  name      String
+  password  String // Store hashed password
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  invoices Invoice[]
+  clients  Client[]
+}
+
+model Invoice {
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId
+  invoiceNumber String        @unique
+  billFrom      Address
+  billTo        Client        @relation(fields: [clientId], references: [id])
+  clientId      String        @db.ObjectId
+  invoiceDate   DateTime
+  paymentTerms  String
+  projectDesc   String
+  items         Item[]
+  status        InvoiceStatus @default(DRAFT)
+  total         Float         @default(0)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  // User relation
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
+
+model Client {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  address   Address
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  invoices Invoice[]
+  userId   String    @db.ObjectId
+  user     User      @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([email, userId])
+}
+
+type Address {
+  street   String
+  city     String
+  postCode String
+  country  String
+}
+
+model Item {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  invoiceId String @db.ObjectId
+  name      String
+  qty       Int
+  price     Float
+  total     Float
+
+  // Relation back to invoice
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@index([invoiceId])
+}
+
+enum InvoiceStatus {
+  DRAFT
+  PENDING
+  PAID
+  OVERDUE
+  CANCELLED
+}

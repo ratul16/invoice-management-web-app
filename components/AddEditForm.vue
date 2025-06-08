@@ -26,10 +26,6 @@ watch(open, (val) => {
     emit('update:isVisible', val)
   }
 })
-
-function openDrawer() {
-  open.value = true
-}
 </script>
 
 <template>

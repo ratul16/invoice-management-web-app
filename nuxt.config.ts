@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
-  modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxt/image', '@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt'],
+  modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxt/image', '@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt', '@prisma/nuxt'],
   devtools: { enabled: true },
 
   css: ['~/assets/css/main.css'],
@@ -26,6 +26,14 @@ export default defineNuxtConfig({
     //   routes: ['/sitemap.xml'],
     //   ignore: ['/hi'],
     // },
+  },
+
+  vite: {
+    resolve: {
+      alias: {
+        '.prisma/client/index-browser': './node_modules/.prisma/client/index-browser.js',
+      },
+    },
   },
 
   eslint: {
