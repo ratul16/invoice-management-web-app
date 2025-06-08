@@ -28,10 +28,7 @@ function toggleSidebar() {
         @click="toggleSidebar"
       />
     </div>
-    <AddEditForm
-      v-model:is-visible="showSidebar"
-      :invoice="invoiceData"
-    />
+    <AddEditForm v-model:is-visible="showSidebar" />
   </div>
 </template>
 

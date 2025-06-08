@@ -69,9 +69,9 @@ const columns = [
       const color = {
         paid: 'success',
         failed: 'error',
-        refunded: 'neutral',
+        refunded: 'info',
+        draft: 'neutral',
       }[row.getValue('status')]
-
       return h(UBadge, { class: 'capitalize px-4', variant: 'subtle', color }, () =>
         row.getValue('status'),
       )

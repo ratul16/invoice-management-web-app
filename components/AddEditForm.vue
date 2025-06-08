@@ -38,16 +38,8 @@ function openDrawer() {
     direction="right"
     inset
   >
-    <UButton
-      label="Open"
-      color="neutral"
-      variant="subtle"
-      trailing-icon="i-lucide-chevron-up"
-      @click="openDrawer"
-    />
-
     <template #content>
-      <Placeholder class="min-w-96 min-h-96 size-full m-4" />
+      <div class="min-w-96 min-h-96 size-full m-4" />
     </template>
   </UDrawer>
 </template>
