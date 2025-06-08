@@ -8,7 +8,7 @@ const links = ref([
 
 <template>
   <div>
-    <AppHeader :links="links" />
+    <NavigationBar :links="links" />
     <slot />
   </div>
 </template>

@@ -1,4 +1,6 @@
 <script setup>
+import { Icon } from '#components'
+
 const colorMode = useColorMode()
 
 const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark'))
@@ -42,18 +44,13 @@ function startViewTransition(event) {
 
 <template>
   <ClientOnly>
-    <UButton
+    <button
       :aria-label="`Switch to ${nextTheme} mode`"
-      :icon="`i-lucide-${nextTheme === 'dark' ? 'sun' : 'moon'}`"
-      color="neutral"
-      variant="ghost"
-      size="sm"
-      class="rounded-full cursor-pointer"
+      class="flex p-2 rounded-full text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors duration-300 cursor-pointer"
       @click="startViewTransition"
-    />
-    <template #fallback>
-      <div class="size-4" />
-    </template>
+    >
+      <Icon :name="`i-lucide-${nextTheme === 'dark' ? 'sun' : 'moon'}`" class="size-5 w-5 h-5" />
+    </button>
   </ClientOnly>
 </template>
 
