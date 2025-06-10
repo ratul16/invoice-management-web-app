@@ -1,6 +1,6 @@
 <script setup>
 const filters = ref(['Backlog', 'Todo', 'In Progress', 'Done'])
-const showSidebar = ref(false)
+const showSidebar = ref(true)
 
 function toggleSidebar() {
   showSidebar.value = !showSidebar.value
